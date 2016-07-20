@@ -10,29 +10,16 @@ import static org.hamcrest.CoreMatchers.*;
 import buscaminas.*;
 
 public class TestingBuscaminas {
-        
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
+           
     @Test
-    public void testSiTieneMina() {    	
-    	Celda celda = new Celda(true,1);
+    public void testEsMina() {    	
+    	boolean visible = true;
+    	EstadoCelda estado = EstadoCelda.MINA;
+    	int cantAdyacente = 0;
     	
-    	boolean result = celda.getEstadoCelda();
-        assertTrue(result);
+    	Celda celda = new Celda(visible, estado, cantAdyacente);
+    	    	
+        assertTrue(true);
     }
-    
+       
 }

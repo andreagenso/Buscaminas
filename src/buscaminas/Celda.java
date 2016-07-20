@@ -1,17 +1,14 @@
 package buscaminas;
 
 public class Celda {
-	private boolean estado;
+	private boolean visible;
+	private EstadoCelda estado;
     private int cantAdyacente;
     
-	public Celda(boolean estado, int cantAdyacente){
+	public Celda(boolean visible, EstadoCelda estado, int cantAdyacente){
+		this.visible = visible;
 		this.estado = estado;
 		this.cantAdyacente = cantAdyacente;
-	}
-	
-    
-    public boolean getEstadoCelda(){ return estado; }
-    
-    public int getCantidadDeAdyacentes() { return cantAdyacente; };
+	}	      
     
 }
