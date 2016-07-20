@@ -12,19 +12,22 @@ public class Matriz {
 	
 	public Matriz(int tam) {
 		this.tam = tam;
-		celdas = new Celda[tam][tam];
-		llenarCeldas();
+		this.celdas = llenarCeldas(tam);
 	}
 	
-	public int getTam() { return tam;};
+	public int getTam() { 		
+		return tam; 
+	}
 	
-	private void llenarCeldas(){
+	private Celda[][] llenarCeldas(int tam){
+		this.celdas = new Celda[tam][tam];
 		for (int i=0; i<tam;i++){
 			for (int j=0; j<tam; j++) {
 				celdas[i][j] = construirCeldaRandom();
 			}
 		}
-		while (validarTodoMinas()) llenarCeldas();
+		while (validarTodoMinas()) llenarCeldas(tam);
+		return celdas;
 	}
 
 	private Celda construirCeldaRandom() {
@@ -44,7 +47,7 @@ public class Matriz {
 		
 		int cantMinas = 0;
 		for (int i=0; i<tam; i++) {
-			for (int j=0; j < tam; i++) {
+			for (int j=0; j < tam; j++) {
 				if (celdas[i][j].esMina())
 					cantMinas++;
 			}
