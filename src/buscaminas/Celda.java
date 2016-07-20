@@ -21,4 +21,8 @@ public class Celda {
     
     public int getCantidadDeAdyacentes() { return cantAdyacente; }
     
+    public boolean esVisible(){
+    	return visible;    	
+    }
+    
 }
