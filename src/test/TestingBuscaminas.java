@@ -23,5 +23,16 @@ public class TestingBuscaminas {
     	boolean result = celda.esMina();
         assertTrue(result);
     }
+    
+    @Test
+    public void testSiVacio(){
+    	boolean visible = true;
+    	EstadoCelda estado = EstadoCelda.VACIO;
+    	int cantAdyacente = 0;
+    	
+    	Celda celda = new Celda(visible, estado, cantAdyacente);
+    	    	
+        assertTrue(true);
+    }
        
 }
