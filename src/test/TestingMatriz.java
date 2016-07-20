@@ -14,12 +14,12 @@ public class TestingMatriz {
 	}
 	
 	@Test
-	public boolean validarTodoMinas() {
+	public void validarTodoMinas() {
 		int cantMinas = 0;
 		Matriz matriz = new Matriz(2);
 		for (int i=0; i<matriz.getTam(); i++) {
 			for (int j=0; j < matriz.getTam(); i++) {
-				if (matriz.celdas[i][j].esMina())
+				if (matriz.getPos(i,j).esMina())
 					cantMinas++;
 			}
 		}
