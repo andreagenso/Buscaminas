@@ -9,6 +9,13 @@ public class Celda {
 		this.visible = visible;
 		this.estado = estado;
 		this.cantAdyacente = cantAdyacente;
-	}	      
+	}
+	
+    
+    public boolean esMina(){
+    	return estado.equals(EstadoCelda.MINA);    	
+    }
+    
+    //public int getCantidadDeAdyacentes() { return cantAdyacente; };
     
 }

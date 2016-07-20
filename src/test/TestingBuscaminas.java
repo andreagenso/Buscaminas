@@ -9,6 +9,7 @@ import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import buscaminas.*;
 
+
 public class TestingBuscaminas {
            
     @Test
@@ -18,8 +19,9 @@ public class TestingBuscaminas {
     	int cantAdyacente = 0;
     	
     	Celda celda = new Celda(visible, estado, cantAdyacente);
-    	    	
-        assertTrue(true);
+    	
+    	boolean result = celda.esMina();
+        assertTrue(result);
     }
        
 }
