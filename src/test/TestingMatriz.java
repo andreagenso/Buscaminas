@@ -26,4 +26,17 @@ public class TestingMatriz {
 		}
 		assertNotEquals(matriz.getTam()*matriz.getTam(),cantMinas);
 	}
+	
+	@Test
+	public void validarTodoVacios() {
+		int cantVacios = 0;
+		Matriz matriz = new Matriz(2);
+		for (int i=0; i<matriz.getTam(); i++) {
+			for (int j=0; j < matriz.getTam(); j++) {
+				if (matriz.getPos(i,j).esVacio())
+					cantVacios++;
+			}
+		}
+		assertNotEquals(matriz.getTam()*matriz.getTam(),cantVacios);
+	}
 }

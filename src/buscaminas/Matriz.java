@@ -26,7 +26,7 @@ public class Matriz {
 				celdas[i][j] = construirCeldaRandom();
 			}
 		}
-		while (validarTodoMinas()) llenarCeldas(tam);
+		while (validarTodoMinas() || validarTodoVacios()) llenarCeldas(tam);
 		return celdas;
 	}
 
@@ -53,6 +53,18 @@ public class Matriz {
 			}
 		}
 		return (tam*tam == cantMinas); 
+	}
+	
+public boolean validarTodoVacios() {
+		
+		int cantVacios = 0;
+		for (int i=0; i<tam; i++) {
+			for (int j=0; j < tam; j++) {
+				if (celdas[i][j].esVacio())
+					cantVacios++;
+			}
+		}
+		return (tam*tam == cantVacios); 
 	}
 }
 
