@@ -13,7 +13,11 @@ public class Celda {
 	
     
     public boolean esMina(){
-    	return estado.equals(EstadoCelda.MINA);    	
+    	return (estado.equals(EstadoCelda.MINA) && cantAdyacente == 0);    	
+    }
+    
+    public boolean esVacio(){
+    	return (estado.equals(EstadoCelda.VACIO) && cantAdyacente == 0);    	
     }
     
     //public int getCantidadDeAdyacentes() { return cantAdyacente; };

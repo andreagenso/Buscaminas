@@ -31,8 +31,9 @@ public class TestingBuscaminas {
     	int cantAdyacente = 0;
     	
     	Celda celda = new Celda(visible, estado, cantAdyacente);
-    	    	
-        assertTrue(true);
+    	
+    	boolean result = celda.esVacio();
+        assertTrue(result);
     }
        
 }
