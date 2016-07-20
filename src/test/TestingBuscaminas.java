@@ -35,5 +35,17 @@ public class TestingBuscaminas {
     	boolean result = celda.esVacio();
         assertTrue(result);
     }
+    
+    @Test
+    public void testEsAdyacenteValido(){
+    	boolean visible = true;
+    	EstadoCelda estado = EstadoCelda.NUMERO;
+    	int cantAdyacente = 5;
+    	
+    	Celda celda = new Celda(visible, estado, cantAdyacente);    	
+    	
+        boolean result = (celda.getCantidadDeAdyacentes() >= 1 && celda.getCantidadDeAdyacentes() <= 8);
+        assertTrue(result);            	
+    }
        
 }
