@@ -55,17 +55,6 @@ public boolean validarTodoVacios() {
 
 public void setPos(int i, int j, Celda aux) { celdas[i][j] = aux; };
 
-
-
-
-
-
-
-
-
-//llenar adyacentes -> funcion para contar minas
-// construitCeldaRandom() -> llenarMinas(), llenarAdyacentes()
-
 private Celda construirCeldaRandom() {
 	boolean visible = true;
 	int cantAdyacente = 0;
@@ -77,5 +66,30 @@ private Celda construirCeldaRandom() {
 	return celda;
 	
 }
+
+public void llenarConMinas() {
+	Celda aux = construirCeldaRandom();
+	int cantMinas = 0;
+	
+	if (aux.esMina()) {
+		while (cantMinas <= tam/2) {
+			int randX = new Random().nextInt(tam-1)+1;
+			int randY = new Random().nextInt(tam-1)+1;
+		
+			celdas[randX][randY] = aux;
+			cantMinas++;
+		}
+	}
+}
+
+
+
+
+
+
+
+//llenar adyacentes -> funcion para contar minas
+// construitCeldaRandom() -> llenarMinas(), llenarAdyacentes()
+
 
 }
