@@ -28,6 +28,7 @@ public class Buscaminas {
 	}
 	
 	public boolean esJuegoGanado(){
+		//return matriz.validarVisiblesExitosas;
 		return true;
 	}
 	
