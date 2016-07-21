@@ -5,17 +5,16 @@ import java.util.Random;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import buscaminas.*;
-import static org.hamcrest.CoreMatchers.*;
 
 public class TestingMatriz {
 
 	@Test
     public void validarTam() {
-		Matriz matriz = new Matriz(1);
+		Matriz matriz = new Matriz(2);
 		int resultado = matriz.getTam();		
-		assertThat(resultado,is(1));
+		assertEquals(resultado,2);
 	}
-	
+
 	@Test
 	public void validarTodoMinas() {
 		int cantMinas = 0;
@@ -41,53 +40,8 @@ public class TestingMatriz {
 		}
 		assertNotEquals(matriz.getTam()*matriz.getTam(),cantVacios);
 	}
-	
-	@Test
-	public void validarVisiblesPierdeConTodoMinasVisible(){
-		Matriz matriz = new Matriz(4);
-		// hacer todas las minas visibles
-		for (int i=0; i<matriz.getTam(); i++) {
-			for (int j=0; j < matriz.getTam(); j++) {
-				if (matriz.getPos(i,j).esMina())
-					matriz.getCeldas()[i][j].setVisible();
-			}
-		}
-		
-		assertTrue("validar que al menos hay una mina visible, entonces pierde", matriz.validarVisiblesPierde());
-	}
-	
-	@Test
-	public void validarVisiblesPierdeConUnaMinaVisible(){
-		Matriz matriz = new Matriz(4);
-		// hacer todas las minas visibles
-		for (int i=0; i<matriz.getTam(); i++) {
-			for (int j=0; j < matriz.getTam(); j++) {
-				if (matriz.getPos(i,j).esMina()){
-					matriz.getCeldas()[i][j].setVisible();
-					break;
-				}
-			}
-		}
-		
-		assertTrue("validar que al menos hay una mina visible, entonces pierde", matriz.validarVisiblesPierde());
-	}
-	
-	@Test
-	public void validarVisiblesExito(){
-		Matriz matriz = new Matriz(4);
-		// hacer todas las celdas que no son mina visibles
-		for (int i=0; i<matriz.getTam(); i++) {
-			for (int j=0; j < matriz.getTam(); j++) {
-				if (!matriz.getPos(i,j).esMina()){
-					matriz.getCeldas()[i][j].setVisible();
-					break;
-				}
-			}
-		}
-		
-		assertTrue("validar que todas las celdas que no son mina son visibles, entonces gana", matriz.validarVisiblesExito());
-	}
-	
+
+
 	@Test
 	public void llenarConMinas() {
 		Matriz matriz = new Matriz(2);
@@ -107,7 +61,7 @@ public class TestingMatriz {
 		}
 	}
 
-		@Test
+	@Test
 	public void contarAdyacentesParaCelda() {
 		Matriz matriz = new Matriz(4);
 		int x = 0, y = 3;
@@ -138,6 +92,73 @@ public class TestingMatriz {
 			}
 		}
 	}
+	
+	
+	
+	/*
+		@Test
+		public void llenarCeldas() {
+			int tam = 5;
+			Matriz matriz = new Matriz(tam);
+			matriz.llenarConMinas();
+			for (int i=0; i< matriz.getTam(); i++) {
+				for (int j=0; j<matriz.getTam(); j++) {
+					matriz.contarAdyacentesParaCelda(i,j);
+				//	System.out.print(matriz.getPos(i,j).getCantidadDeAdyacentes()+" " + matriz.getPos(i, j).getEstado().toString());
+				}
+			//	System.out.println(" ");
+			}
+		}
+	
+	*/
+	
+		
+	
+		
+	
+	@Test
+	public void validarVisiblesPierdeConTodoMinasVisible(){
+		Matriz matriz = new Matriz(4);
+		// hacer todas las minas visibles
+		for (int i=0; i<matriz.getTam(); i++) {
+			for (int j=0; j < matriz.getTam(); j++) {
+				if (matriz.getPos(i,j).esMina())
+					matriz.getCeldas()[i][j].setVisible();
+			}
+		}
+		assertTrue("validar que al menos hay una mina visible, entonces pierde", matriz.validarVisiblesPierde());
+	}
+	
+	@Test
+	public void validarVisiblesPierdeConUnaMinaVisible(){
+		Matriz matriz = new Matriz(4);
+		// hacer todas las minas visibles
+		for (int i=0; i<matriz.getTam(); i++) {
+			for (int j=0; j < matriz.getTam(); j++) {
+				if (matriz.getPos(i,j).esMina()){
+					matriz.getCeldas()[i][j].setVisible();
+					break;
+				}
+			}
+		}
+		assertTrue("validar que al menos hay una mina visible, entonces pierde", matriz.validarVisiblesPierde());
+	}
+	
+	@Test
+	public void validarVisiblesExito(){
+		Matriz matriz = new Matriz(4);
+		// hacer todas las celdas que no son mina visibles
+		for (int i=0; i<matriz.getTam(); i++) {
+			for (int j=0; j < matriz.getTam(); j++) {
+				if (!matriz.getPos(i,j).esMina()){
+					matriz.getCeldas()[i][j].setVisible();
+					break;
+				}
+			}
+		}
+		assertTrue("validar que todas las celdas que no son mina son visibles, entonces gana", matriz.validarVisiblesExito());
+	}
+	
 	
 	@Test
 	public void mostrarAdyacentes() {
@@ -179,11 +200,7 @@ public class TestingMatriz {
 	
 	System.out.println(matriz.getPos(x, y).getCantidadDeAdyacentes()+" " + matriz.getPos(x, y).getEstado().toString());
 	}
-
-
-	
-	
-	
+		
 	
 	
 }

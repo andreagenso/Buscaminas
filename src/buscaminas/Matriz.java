@@ -10,28 +10,14 @@ public class Matriz {
 	
 	public Matriz(int tam) {
 		this.tam = tam;
-		this.celdas = llenarCeldas(tam);
+		this.celdas = llenarCeldas();
 	}
 	
-	public int getTam() { 		
-		return tam; 
-	}
-	
-	private Celda[][] llenarCeldas(int tam){
-		this.celdas = new Celda[tam][tam];
-		for (int i=0; i<tam;i++){
-			for (int j=0; j<tam; j++) {
-				celdas[i][j] = construirCeldaRandom();
-			}
-		}
-		while (validarTodoMinas() || validarTodoVacios()) llenarCeldas(tam);
-		return celdas;
-	}
+	public int getTam() { return tam; }
 	
 	public Celda getPos(int i, int j) { return celdas[i][j]; };
 	
-	public boolean validarTodoMinas() {
-		
+	public boolean validarTodoMinas() {	
 		int cantMinas = 0;
 		for (int i=0; i<tam; i++) {
 			for (int j=0; j < tam; j++) {
@@ -42,8 +28,7 @@ public class Matriz {
 		return (tam*tam == cantMinas); 
 	}
 	
-	public boolean validarTodoVacios() {
-		
+	public boolean validarTodoVacios() {	
 		int cantVacios = 0;
 		for (int i=0; i<tam; i++) {
 			for (int j=0; j < tam; j++) {
@@ -62,19 +47,19 @@ public class Matriz {
 		Celda aux = new Celda(visible,EstadoCelda.MINA,cantAdyacentes);
 	
 		while (cantMinas <= tam/2) {
-			int randX = new Random().nextInt(tam-1)+1;
-			int randY = new Random().nextInt(tam-1)+1;
+			int randX = new Random().nextInt(tam-1) + 1; 
+			int randY = new Random().nextInt(tam-1) + 1;
 			celdas[randX][randY] = aux;
 			cantMinas++;
 		}
 	}
-
+	
 	public void contarAdyacentesParaCelda(int x, int y) {
 		int limiteInferior = 0, limiteSuperior = tam - 1, cantidad = 0;
 	
 		for (int i=0; i<tam; i++) {
 			for (int j=0; j<tam; j++) {
-				if (!getPos(i, j).getEstado().equals(EstadoCelda.MINA)) {
+				if (!getPos(i,j).getEstado().equals(EstadoCelda.MINA)) {
 					
 					for (int a = x-1; a <= x+1; a++) {
 						for (int b= y-1; b <= y+1; b++) {
@@ -100,11 +85,30 @@ public class Matriz {
 	
 	
 	
+	
+	
+	
+	////need to fix
+	private Celda[][] llenarCeldas(){
+		this.celdas = new Celda[tam][tam];
+		
+		for (int i=0; i<tam;i++){
+			for (int j=0; j<tam; j++) {
+				celdas[i][j] = new Celda(true,EstadoCelda.VACIO,0);
+				System.out.print(celdas[i][j].getCantidadDeAdyacentes()+" " + celdas[i][j].getEstado().toString());
 
-	
-	
-	
-	
+			}
+		}
+		llenarConMinas();
+		
+		/*
+		for (int i=0; i<tam;i++){
+			for (int j=0; j<tam; j++) 
+				contarAdyacentesParaCelda(i,j);
+		}
+		*/
+		return celdas;
+	}
 	
 	public void hacerVisible(Posicion posicion) {
 		celdas[posicion.x][posicion.y].setVisible();
@@ -121,7 +125,6 @@ public class Matriz {
 		return celda;
 	}
 	
-
 	/*
 	 * Verifica si todas las celdas que no son mina, estan visibles
 	 * @return true si todas las celdas que no son minas estan visibles
