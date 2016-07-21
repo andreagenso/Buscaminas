@@ -69,7 +69,39 @@ public class Matriz {
 		}
 	}
 
-
+	public void contarAdyacentesParaCelda(int x, int y) {
+		int limiteInferior = 0, limiteSuperior = tam - 1, cantidad = 0;
+	
+		for (int i=0; i<tam; i++) {
+			for (int j=0; j<tam; j++) {
+				if (!getPos(i, j).getEstado().equals(EstadoCelda.MINA)) {
+					
+					for (int a = x-1; a <= x+1; a++) {
+						for (int b= y-1; b <= y+1; b++) {
+							if (a >= limiteInferior && a<= limiteSuperior && b >= limiteInferior && b<= limiteSuperior) {
+								if (getPos(a,b) != getPos(x,y))
+								{	
+									if (getPos(a, b).getEstado().equals(EstadoCelda.MINA))
+										cantidad++;
+								}
+							}
+						}
+					}
+					if (cantidad > 0) {
+						getPos(x, y).setEstado(EstadoCelda.NUMERO);
+						getPos(x, y).setCantidadAdyacentes(cantidad);	
+					}
+					else
+						getPos(x, y).setEstado(EstadoCelda.VACIO);
+				}
+			}
+		}
+	}
+	
+	
+	
+	
+	
 	
 	
 	
