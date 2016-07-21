@@ -54,8 +54,12 @@ public boolean validarTodoVacios() {
 	}
 
 
+//llenar minas
+//llenar adyacentes -> funcion para contar minas
+// construitCeldaRandom() -> llenarMinas(), llenarAdyacentes()
+
+
 private Celda construirCeldaRandom() {
-	System.out.println("push");
 	boolean visible = true;
 	int cantAdyacente = 0;
 	int estadoRandom = new Random().nextInt(EstadoCelda.values().length);	
@@ -64,6 +68,7 @@ private Celda construirCeldaRandom() {
 		cantAdyacente = new Random().nextInt(8)+1;
 	Celda celda = new Celda(visible,estado,cantAdyacente);
 	return celda;
+	
 }
 
 }

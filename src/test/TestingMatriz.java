@@ -1,5 +1,7 @@
 package test;
 
+import java.util.Random;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 import buscaminas.*;
@@ -27,7 +29,7 @@ public class TestingMatriz {
 		assertNotEquals(matriz.getTam()*matriz.getTam(),cantMinas);
 	}
 	
-	@Test // trying out push on git
+	@Test
 	public void validarTodoVacios() {
 		int cantVacios = 0;
 		Matriz matriz = new Matriz(2);
@@ -39,4 +41,17 @@ public class TestingMatriz {
 		}
 		assertNotEquals(matriz.getTam()*matriz.getTam(),cantVacios);
 	}
-} 
+	
+	@Test
+	public void llenarConMinas() {
+		Matriz matriz = new Matriz(2);
+		int cantMinas = 0;
+		int randX = new Random().nextInt((matriz.getTam()-1)+1;
+		int randY = new Random().nextInt((matriz.getTam()-1)+1;
+		
+		while (cantMinas <= matriz.getTam()/2) {
+			matriz.setPos(randX,randY) = llenarConMina();
+		}
+	}
+}
+	
