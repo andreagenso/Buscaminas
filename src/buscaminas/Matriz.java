@@ -56,6 +56,27 @@ public class Matriz {
 
 	public void setPos(int i, int j, Celda aux) { celdas[i][j] = aux; };
 
+	public void llenarConMinas() {
+		boolean visible = true;
+		int cantMinas = 0, cantAdyacentes = 0;
+		Celda aux = new Celda(visible,EstadoCelda.MINA,cantAdyacentes);
+	
+		while (cantMinas <= tam/2) {
+			int randX = new Random().nextInt(tam-1)+1;
+			int randY = new Random().nextInt(tam-1)+1;
+			celdas[randX][randY] = aux;
+			cantMinas++;
+		}
+	}
+
+
+	
+	
+	
+	public void hacerVisible(Posicion posicion) {
+		celdas[posicion.x][posicion.y].setVisible();
+	}
+	
 	private Celda construirCeldaRandom() {
 		boolean visible = true;
 		int cantAdyacente = 0;
@@ -67,33 +88,7 @@ public class Matriz {
 		return celda;
 	}
 	
-	public void hacerVisible(Posicion posicion) {
-		celdas[posicion.x][posicion.y].setVisible();
-	}
-
-	
-	public void llenarConMinas() {
-		Celda aux = construirCeldaRandom();
-		int cantMinas = 0;
-	
-		if (aux.esMina()) {
-			while (cantMinas <= tam/2) {
-				int randX = new Random().nextInt(tam-1)+1;
-				int randY = new Random().nextInt(tam-1)+1;
-				celdas[randX][randY] = aux;
-				cantMinas++;
-			}
-		}
-	}
-
-
-
-
-
-
 
 //llenar adyacentes -> funcion para contar minas
 // construitCeldaRandom() -> llenarMinas(), llenarAdyacentes()
-
-
 }

@@ -26,5 +26,9 @@ public class Celda {
     public boolean esVisible(){	return visible;	}
     
     public void setVisible(){ visible = true; }
+
+	public EstadoCelda getEstado() { return estado; }
+	
+	public void setEstado(EstadoCelda estado) { this.estado = estado; }
     
 }
