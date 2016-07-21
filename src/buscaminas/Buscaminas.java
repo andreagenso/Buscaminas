@@ -25,8 +25,16 @@ public class Buscaminas {
 			matriz.hacerVisible(posicion);					
 		}
 		return matriz.getCeldas();
-	}	
-		
+	}
+	
+	public boolean esJuegoGanado(){
+		return true;
+	}
+	
+	public boolean esJuegoPerdido(){
+		return true;
+	}
+					
 	public boolean validarPosicion(Posicion posicion) {
 		int i = posicion.x;
 		int j = posicion.y;
