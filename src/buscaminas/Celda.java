@@ -25,4 +25,8 @@ public class Celda {
     	return visible;    	
     }
     
+    public void setVisible(){
+    	visible = true;
+    }
+    
 }

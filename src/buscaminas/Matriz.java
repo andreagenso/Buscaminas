@@ -1,5 +1,6 @@
 package buscaminas;
 import java.util.Random;
+import buscaminas.Posicion;
 
 public class Matriz {
 	private int tam;
@@ -65,5 +66,9 @@ private Celda construirCeldaRandom() {
 	Celda celda = new Celda(visible,estado,cantAdyacente);
 	return celda;
 }
+	
+	public void hacerVisible(Posicion posicion) {
+		celdas[posicion.x][posicion.y].setVisible();
+	}
 
 }
