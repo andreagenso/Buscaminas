@@ -1,6 +1,6 @@
 package buscaminas;
 import java.util.Random;
-import buscaminas.Posicion;
+//import buscaminas.Posicion;
 
 public class Matriz {
 	private int tam;
@@ -42,7 +42,7 @@ public class Matriz {
 		return (tam*tam == cantMinas); 
 	}
 	
-public boolean validarTodoVacios() {
+	public boolean validarTodoVacios() {
 		
 		int cantVacios = 0;
 		for (int i=0; i<tam; i++) {
@@ -54,38 +54,37 @@ public boolean validarTodoVacios() {
 		return (tam*tam == cantVacios); 
 	}
 
-public void setPos(int i, int j, Celda aux) { celdas[i][j] = aux; };
+	public void setPos(int i, int j, Celda aux) { celdas[i][j] = aux; };
 
-private Celda construirCeldaRandom() {
-	boolean visible = true;
-	int cantAdyacente = 0;
-	int estadoRandom = new Random().nextInt(EstadoCelda.values().length);	
-	EstadoCelda estado = EstadoCelda.values()[estadoRandom];
-	if (estado.equals(EstadoCelda.NUMERO))
-		cantAdyacente = new Random().nextInt(8)+1;
-	Celda celda = new Celda(visible,estado,cantAdyacente);
-	return celda;
-	
-}
+	private Celda construirCeldaRandom() {
+		boolean visible = true;
+		int cantAdyacente = 0;
+		int estadoRandom = new Random().nextInt(EstadoCelda.values().length);	
+		EstadoCelda estado = EstadoCelda.values()[estadoRandom];
+		if (estado.equals(EstadoCelda.NUMERO))
+			cantAdyacente = new Random().nextInt(8)+1;
+		Celda celda = new Celda(visible,estado,cantAdyacente);
+		return celda;
+	}
 	
 	public void hacerVisible(Posicion posicion) {
 		celdas[posicion.x][posicion.y].setVisible();
 	}
 
-public void llenarConMinas() {
-	Celda aux = construirCeldaRandom();
-	int cantMinas = 0;
 	
-	if (aux.esMina()) {
-		while (cantMinas <= tam/2) {
-			int randX = new Random().nextInt(tam-1)+1;
-			int randY = new Random().nextInt(tam-1)+1;
-		
-			celdas[randX][randY] = aux;
-			cantMinas++;
+	public void llenarConMinas() {
+		Celda aux = construirCeldaRandom();
+		int cantMinas = 0;
+	
+		if (aux.esMina()) {
+			while (cantMinas <= tam/2) {
+				int randX = new Random().nextInt(tam-1)+1;
+				int randY = new Random().nextInt(tam-1)+1;
+				celdas[randX][randY] = aux;
+				cantMinas++;
+			}
 		}
 	}
-}
 
 
 

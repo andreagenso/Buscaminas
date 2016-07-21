@@ -62,37 +62,30 @@ public class TestingMatriz {
 	}
 
 	
-	
-	
-	/*
-	public void contarAdyacentesParaCelda(int i,int j) {
-		Matriz matriz = new Matriz(2);
-		int cantAdyacente = 0;
-		boolean visible = true;
-	
-			
-			int estadoRandom = new Random().nextInt(EstadoCelda.values().length);	
-			EstadoCelda estado = EstadoCelda.values()[estadoRandom];
-			Celda aux = new Celda(visible,estado,cantAdyacente);
-			
-			matriz.setPos(i-1, j-1, aux);
-			matriz.setPos(i-1, j, aux);
-			matriz.setPos(i-1, j+1, aux);
-			matriz.setPos(i, j, aux);
-			matriz.setPos(i+1, j+1, aux);
-			matriz.setPos(i+1, j, aux);
-			matriz.setPos(i+1, j-1, aux);
-			matriz.setPos(i, j-1, aux);	
-		
-		
-	
+	@Test
+	public void contarAdyacentesParaCelda(int x,int y) {
+		Matriz matriz = new Matriz(4);
+		int limiteInferior = 0, limiteSuperior = matriz.getTam() - 1, cantidad = 0;
+
+		for (int i=0; i<matriz.getTam(); i++) {
+			for (int j=0; j<matriz.getTam(); j++) {
+				if (!matriz.getPos(i, j).getEstado().equals(EstadoCelda.MINA)) {
+					for (int a = x-1; a = x+1; a++) {
+						for (int b= y-1; b=y+1; b++) {
+							if (a >= limiteInferior && a<= limiteSuperior && b >= limiteInferior && b<= limiteSuperior) {
+								if (a != i && b!=j && matriz.getPos(a, b).getEstado().equals(EstadoCelda.MINA))
+									cantidad++;
+							}
+						}
+					}
+					if (cantidad > 0) {
+						matriz.getPos(x, y).setEstado(EstadoCelda.NUMERO);
+						matriz.getPos(x, y).setCantidadAdyacentes(matriz.getPos(x, y).getCantidadDeAdyacentes()+1);	
+					}
+					else
+						matriz.getPos(x, y).setEstado(EstadoCelda.VACIO);
+				}
+			}
+		}
 	}
-	
-}
-
-[i][j+1],[i+1][j+1],[i+1][j],[i+1][j-1],[i][j-1]
-		if (estado.equals(EstadoCelda.NUMERO))
-			Celda aux = new Celda(visible.);
-
-*/
 }
