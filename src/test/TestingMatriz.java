@@ -43,6 +43,52 @@ public class TestingMatriz {
 	}
 	
 	@Test
+	public void validarVisiblesPierdeConTodoMinasVisible(){
+		Matriz matriz = new Matriz(4);
+		// hacer todas las minas visibles
+		for (int i=0; i<matriz.getTam(); i++) {
+			for (int j=0; j < matriz.getTam(); j++) {
+				if (matriz.getPos(i,j).esMina())
+					matriz.getCeldas()[i][j].setVisible();
+			}
+		}
+		
+		assertTrue("validar que al menos hay una mina visible, entonces pierde", matriz.validarVisiblesPierde());
+	}
+	
+	@Test
+	public void validarVisiblesPierdeConUnaMinaVisible(){
+		Matriz matriz = new Matriz(4);
+		// hacer todas las minas visibles
+		for (int i=0; i<matriz.getTam(); i++) {
+			for (int j=0; j < matriz.getTam(); j++) {
+				if (matriz.getPos(i,j).esMina()){
+					matriz.getCeldas()[i][j].setVisible();
+					break;
+				}
+			}
+		}
+		
+		assertTrue("validar que al menos hay una mina visible, entonces pierde", matriz.validarVisiblesPierde());
+	}
+	
+	@Test
+	public void validarVisiblesExito(){
+		Matriz matriz = new Matriz(4);
+		// hacer todas las celdas que no son mina visibles
+		for (int i=0; i<matriz.getTam(); i++) {
+			for (int j=0; j < matriz.getTam(); j++) {
+				if (!matriz.getPos(i,j).esMina()){
+					matriz.getCeldas()[i][j].setVisible();
+					break;
+				}
+			}
+		}
+		
+		assertTrue("validar que todas las celdas que no son mina son visibles, entonces gana", matriz.validarVisiblesExito());
+	}
+	
+	@Test
 	public void llenarConMinas() {
 		Matriz matriz = new Matriz(2);
 		boolean visible = true;

@@ -82,5 +82,39 @@ private Celda construirCeldaRandom() {
 	public void hacerVisible(Posicion posicion) {
 		celdas[posicion.x][posicion.y].setVisible();
 	}
+	
+	/*
+	 * Verifica si todas las celdas que no son mina, estan visibles
+	 * @return true si todas las celdas que no son minas estan visibles
+	 */
+	public boolean validarVisiblesExito(){
+		boolean resultado = true;
+		for (int i=0; i<tam;i++){
+			for (int j=0; j<tam; j++) {
+				if (!celdas[i][j].esMina())
+					if (!celdas[i][j].esVisible()) {
+						resultado = false;
+						break;
+					}
+			}
+		}
+		return resultado;
+	}
+	
+	/*
+	 * @return true si al menos una mina es visible
+	 */
+	public boolean validarVisiblesPierde(){
+		boolean resultado = false;
+		for (int i=0; i<tam;i++){
+			for (int j=0; j<tam; j++) {
+				if (celdas[i][j].esMina() && celdas[i][j].esVisible()) {
+					resultado = true;
+					break;
+				}					
+			}
+		}
+		return resultado;
+	}
 
 }

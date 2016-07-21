@@ -28,12 +28,11 @@ public class Buscaminas {
 	}
 	
 	public boolean esJuegoGanado(){
-		//return matriz.validarVisiblesExitosas;
-		return true;
+		return matriz.validarVisiblesExito();		
 	}
 	
 	public boolean esJuegoPerdido(){
-		return true;
+		return matriz.validarVisiblesPierde();
 	}
 					
 	public boolean validarPosicion(Posicion posicion) {
