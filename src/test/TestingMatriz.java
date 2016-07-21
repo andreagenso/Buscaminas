@@ -45,8 +45,9 @@ public class TestingMatriz {
 	@Test
 	public void llenarConMinas() {
 		Matriz matriz = new Matriz(2);
-		Celda aux;
-		aux.llenarConMina();
+		boolean visible = true;
+		int cantAdyacente = 0;
+		Celda aux = new Celda(visible,EstadoCelda.MINA,cantAdyacente);
 		int cantMinas = 0;
 		int randX = new Random().nextInt(matriz.getTam()-1)+1;
 		int randY = new Random().nextInt(matriz.getTam()-1)+1;
