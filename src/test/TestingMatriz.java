@@ -27,7 +27,7 @@ public class TestingMatriz {
 		assertNotEquals(matriz.getTam()*matriz.getTam(),cantMinas);
 	}
 	
-	@Test
+	@Test // trying out push on git
 	public void validarTodoVacios() {
 		int cantVacios = 0;
 		Matriz matriz = new Matriz(2);
@@ -39,4 +39,4 @@ public class TestingMatriz {
 		}
 		assertNotEquals(matriz.getTam()*matriz.getTam(),cantVacios);
 	}
-}
+} 

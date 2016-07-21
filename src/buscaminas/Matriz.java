@@ -1,9 +1,6 @@
 package buscaminas;
 import java.util.Random;
 
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
-
 public class Matriz {
 	private int tam;
 	private Celda[][] celdas;
@@ -28,17 +25,6 @@ public class Matriz {
 		}
 		while (validarTodoMinas() || validarTodoVacios()) llenarCeldas(tam);
 		return celdas;
-	}
-
-	private Celda construirCeldaRandom() {
-		boolean visible = true;
-		int cantAdyacente = 0;
-		int estadoRandom = new Random().nextInt(EstadoCelda.values().length);	
-		EstadoCelda estado = EstadoCelda.values()[estadoRandom];
-		if (estado.equals(EstadoCelda.NUMERO))
-			cantAdyacente = new Random().nextInt(8)+1;
-		Celda celda = new Celda(visible,estado,cantAdyacente);
-		return celda;
 	}
 	
 	public Celda getPos(int i, int j) { return celdas[i][j]; };
@@ -66,5 +52,18 @@ public boolean validarTodoVacios() {
 		}
 		return (tam*tam == cantVacios); 
 	}
+
+
+private Celda construirCeldaRandom() {
+	System.out.println("push");
+	boolean visible = true;
+	int cantAdyacente = 0;
+	int estadoRandom = new Random().nextInt(EstadoCelda.values().length);	
+	EstadoCelda estado = EstadoCelda.values()[estadoRandom];
+	if (estado.equals(EstadoCelda.NUMERO))
+		cantAdyacente = new Random().nextInt(8)+1;
+	Celda celda = new Celda(visible,estado,cantAdyacente);
+	return celda;
 }
 
+}
