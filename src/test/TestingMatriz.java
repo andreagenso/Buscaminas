@@ -49,11 +49,50 @@ public class TestingMatriz {
 		int cantAdyacente = 0;
 		Celda aux = new Celda(visible,EstadoCelda.MINA,cantAdyacente);
 		int cantMinas = 0;
-		int randX = new Random().nextInt(matriz.getTam()-1)+1;
-		int randY = new Random().nextInt(matriz.getTam()-1)+1;
 		
-		while (cantMinas <= matriz.getTam()/2) {
-			matriz.setPos(randX,randY,aux);
+		if (aux.esMina()) {
+			while (cantMinas <= matriz.getTam()/2) {
+				int randX = new Random().nextInt(matriz.getTam()-1)+1;
+				int randY = new Random().nextInt(matriz.getTam()-1)+1;
+			
+				matriz.setPos(randX,randY,aux);
+				cantMinas++;
+			}
 		}
 	}
+
+	
+	
+	
+	/*
+	public void contarAdyacentesParaCelda(int i,int j) {
+		Matriz matriz = new Matriz(2);
+		int cantAdyacente = 0;
+		boolean visible = true;
+	
+			
+			int estadoRandom = new Random().nextInt(EstadoCelda.values().length);	
+			EstadoCelda estado = EstadoCelda.values()[estadoRandom];
+			Celda aux = new Celda(visible,estado,cantAdyacente);
+			
+			matriz.setPos(i-1, j-1, aux);
+			matriz.setPos(i-1, j, aux);
+			matriz.setPos(i-1, j+1, aux);
+			matriz.setPos(i, j, aux);
+			matriz.setPos(i+1, j+1, aux);
+			matriz.setPos(i+1, j, aux);
+			matriz.setPos(i+1, j-1, aux);
+			matriz.setPos(i, j-1, aux);	
+		
+		
+	
+	}
+	
+}
+
+[i][j+1],[i+1][j+1],[i+1][j],[i+1][j-1],[i][j-1]
+		if (estado.equals(EstadoCelda.NUMERO))
+			Celda aux = new Celda(visible.);
+
+*/
 }

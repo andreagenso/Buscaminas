@@ -59,7 +59,10 @@ public void setPos(int i, int j, Celda aux) { celdas[i][j] = aux; };
 
 
 
-//llenar minas
+
+
+
+
 //llenar adyacentes -> funcion para contar minas
 // construitCeldaRandom() -> llenarMinas(), llenarAdyacentes()
 
