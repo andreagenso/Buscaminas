@@ -45,13 +45,14 @@ public class TestingMatriz {
 	@Test
 	public void llenarConMinas() {
 		Matriz matriz = new Matriz(2);
+		Celda aux;
+		aux.llenarConMina();
 		int cantMinas = 0;
-		int randX = new Random().nextInt((matriz.getTam()-1)+1;
-		int randY = new Random().nextInt((matriz.getTam()-1)+1;
+		int randX = new Random().nextInt(matriz.getTam()-1)+1;
+		int randY = new Random().nextInt(matriz.getTam()-1)+1;
 		
 		while (cantMinas <= matriz.getTam()/2) {
-			matriz.setPos(randX,randY) = llenarConMina();
+			matriz.setPos(randX,randY,aux);
 		}
 	}
 }
-	

@@ -53,11 +53,15 @@ public boolean validarTodoVacios() {
 		return (tam*tam == cantVacios); 
 	}
 
+public void setPos(int i, int j, Celda aux) { celdas[i][j] = aux; };
+
+
+
+
 
 //llenar minas
 //llenar adyacentes -> funcion para contar minas
 // construitCeldaRandom() -> llenarMinas(), llenarAdyacentes()
-
 
 private Celda construirCeldaRandom() {
 	boolean visible = true;
