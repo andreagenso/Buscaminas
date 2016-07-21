@@ -61,30 +61,30 @@ public class TestingMatriz {
 		}
 	}
 
-	
-	@Test
+		@Test
 	public void contarAdyacentesParaCelda() {
 		Matriz matriz = new Matriz(4);
 		int x = 0, y = 3;
-		
-		
-		int limiteInferior = 0, limiteSuperior = matriz.getTam() - 1;
-
+		int limiteInferior = 0, limiteSuperior = matriz.getTam() - 1, cantidad = 0;
+	
 		for (int i=0; i<matriz.getTam(); i++) {
 			for (int j=0; j<matriz.getTam(); j++) {
 				if (!matriz.getPos(i, j).getEstado().equals(EstadoCelda.MINA)) {
-					int cantidad = 0;
+					
 					for (int a = x-1; a <= x+1; a++) {
 						for (int b= y-1; b <= y+1; b++) {
 							if (a >= limiteInferior && a<= limiteSuperior && b >= limiteInferior && b<= limiteSuperior) {
-								if (a != x && b!=y && matriz.getPos(a, b).getEstado().equals(EstadoCelda.MINA))
-									cantidad++;
+								if (matriz.getPos(a,b) != matriz.getPos(x,y))
+								{	
+									if (matriz.getPos(a, b).getEstado().equals(EstadoCelda.MINA))
+										cantidad++;
+								}
 							}
 						}
 					}
 					if (cantidad > 0) {
 						matriz.getPos(x, y).setEstado(EstadoCelda.NUMERO);
-						matriz.getPos(x, y).setCantidadAdyacentes(matriz.getPos(x, y).getCantidadDeAdyacentes()+1);	
+						matriz.getPos(x, y).setCantidadAdyacentes(cantidad);	
 					}
 					else
 						matriz.getPos(x, y).setEstado(EstadoCelda.VACIO);
