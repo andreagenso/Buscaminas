@@ -28,5 +28,6 @@ public class Celda {
     public void setVisible(){
     	visible = true;
     }
+        
     
 }

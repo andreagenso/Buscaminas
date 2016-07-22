@@ -79,8 +79,7 @@ public class TestingMatriz {
 		for (int i=0; i<matriz.getTam(); i++) {
 			for (int j=0; j < matriz.getTam(); j++) {
 				if (!matriz.getPos(i,j).esMina()){
-					matriz.getCeldas()[i][j].setVisible();
-					break;
+					matriz.getCeldas()[i][j].setVisible();					
 				}
 			}
 		}
