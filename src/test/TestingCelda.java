@@ -53,7 +53,21 @@ public class TestingCelda {
         boolean result = (celda.esVisible());
         assertTrue(result);            	
     }
-       
+    
+    @Test
+    public void mostrarCelda() {
+    	boolean visible = true;
+    	EstadoCelda estado = EstadoCelda.NUMERO;
+    	int cantAdyacente = 4;
+ 
+    	Celda celda = new Celda(visible,estado,cantAdyacente);
+    	if (celda.esVisible())
+    	{
+    		if (celda.esMina()) System.out.print(" [*]");
+    		if (celda.esNumero()) System.out.print(" [" + cantAdyacente + "]");
+    	}
+    	if (!celda.esVisible() || celda.esVacio()) System.out.print(" [ ]");
+    }
 }
 
 
