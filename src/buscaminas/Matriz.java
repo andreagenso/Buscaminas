@@ -46,7 +46,7 @@ public class Matriz {
 		int cantMinas = 0, cantAdyacentes = 0;
 		Celda aux = new Celda(visible,EstadoCelda.MINA,cantAdyacentes);
 	
-		while (cantMinas <= ((tam*tam)/2)) {
+		while (cantMinas <= (((tam*tam)-tam)/2)) {
 			int randX = new Random().nextInt(tam-1) + 1; 
 			int randY = new Random().nextInt(tam-1) + 1;
 			celdas[randX][randY] = aux;
@@ -55,12 +55,12 @@ public class Matriz {
 	}
 	
 	public void contarAdyacentesParaCelda(int x, int y) {
-		int limiteInferior = 0, limiteSuperior = tam - 1, cantidad = 0;
+		int limiteInferior = 0, limiteSuperior = tam - 1, cantidad;
 	
 		for (int i=0; i<tam; i++) {
 			for (int j=0; j<tam; j++) {
 				if (!getPos(i,j).getEstado().equals(EstadoCelda.MINA)) {
-					
+					cantidad = 0;
 					for (int a = x-1; a <= x+1; a++) {
 						for (int b= y-1; b <= y+1; b++) {
 							if (a >= limiteInferior && a<= limiteSuperior && b >= limiteInferior && b<= limiteSuperior) {
@@ -76,8 +76,6 @@ public class Matriz {
 						getPos(x, y).setEstado(EstadoCelda.NUMERO);
 						getPos(x, y).setCantidadAdyacentes(cantidad);	
 					}
-					else
-						getPos(x, y).setEstado(EstadoCelda.VACIO);
 				}
 			}
 		}
@@ -106,6 +104,8 @@ public class Matriz {
 			System.out.println(" ");
 		}
 	}
+	
+	
 	
 	
 	
