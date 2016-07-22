@@ -41,7 +41,6 @@ public class TestingMatriz {
 		assertNotEquals(matriz.getTam()*matriz.getTam(),cantVacios);
 	}
 
-
 	@Test
 	public void llenarConMinas() {
 		Matriz matriz = new Matriz(2);
@@ -111,14 +110,26 @@ public class TestingMatriz {
 			int tam = 5;
 			Matriz matriz = new Matriz(tam);
 			for (int i=0; i< matriz.getTam(); i++) {
-				for (int j=0; j<matriz.getTam(); j++)
-					matriz.getPos(i,j).mostrarCelda();
-				System.out.println(" ");
+		//		for (int j=0; j<matriz.getTam(); j++)
+		//			matriz.getPos(i,j).mostrarCelda();
+		//		System.out.println(" ");
 			}
 		}
 		
-		
+		@Test
+		public void llenarMatrizAleatoriamente() {
+			int tam = 2;
+			Matriz matriz = new Matriz(tam);
+			matriz.llenarConMinas();
+			/*for (int i=0; i< matriz.getTam(); i ++) {
+				for (int j=0; j<matriz.getTam(); j++)
+					matriz.contarAdyacentesParaCelda(i, j);
+			}*/
+			matriz.mostrarMatriz();
+		}
 
+		
+		
 	
 	@Test
 	public void validarVisiblesPierdeConTodoMinasVisible(){
