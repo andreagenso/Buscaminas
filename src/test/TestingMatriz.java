@@ -50,7 +50,7 @@ public class TestingMatriz {
 		int cantMinas = 0;
 		
 		if (aux.esMina()) {
-			while (cantMinas <= matriz.getTam()/2) {
+			while (cantMinas <= (matriz.getTam()/2)) {
 				int randX = new Random().nextInt(matriz.getTam()-1)+1;
 				int randY = new Random().nextInt(matriz.getTam()-1)+1;
 			
@@ -114,7 +114,7 @@ public class TestingMatriz {
 			}
 		}
 		
-		@Test
+	//	@Test
 		public void llenarMatrizAleatoriamente() {
 			int tam = 5;
 			Matriz matriz = new Matriz(tam);
@@ -126,7 +126,12 @@ public class TestingMatriz {
 			matriz.mostrarMatriz();
 		}
 
-		
+		@Test
+		public void llenarMatrizAleatoriamenteMejorado() {
+			int tam = 5;
+			Matriz matriz = new Matriz(tam);
+			matriz.mostrarMatriz();
+		}
 		
 		
 		
