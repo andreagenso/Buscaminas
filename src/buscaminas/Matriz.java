@@ -83,7 +83,17 @@ public class Matriz {
 		}
 	}
 	
-	
+	public void llenarCeldasConVacio() {
+		this.celdas = new Celda[tam][tam];
+		for (int i=0; i< tam; i++) {
+			for (int j=0; j < tam; j++) {
+				celdas[i][j].setVisible();
+				celdas[i][j].setEstado(EstadoCelda.VACIO);
+				celdas[i][j].setCantidadAdyacentes(0);
+			}
+		}
+	}
+
 	
 	
 	

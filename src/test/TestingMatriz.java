@@ -102,13 +102,20 @@ public class TestingMatriz {
 					matriz.getPos(i,j).setVisible();
 					matriz.getPos(i,j).setEstado(EstadoCelda.VACIO);
 					matriz.getPos(i,j).setCantidadAdyacentes(0);
-					matriz.getPos(i, j).mostrarCelda();
 				}
-				System.out.println(" ");
 			}
 		}
 	
-	
+		@Test
+		public void mostrarMatriz() {
+			int tam = 5;
+			Matriz matriz = new Matriz(tam);
+			for (int i=0; i< matriz.getTam(); i++) {
+				for (int j=0; j<matriz.getTam(); j++)
+					matriz.getPos(i,j).mostrarCelda();
+				System.out.println(" ");
+			}
+		}
 		
 		
 
