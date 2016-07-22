@@ -85,8 +85,6 @@ public class TestingMatriz {
 						matriz.getPos(x, y).setEstado(EstadoCelda.NUMERO);
 						matriz.getPos(x, y).setCantidadAdyacentes(cantidad);	
 					}
-					else
-						matriz.getPos(x, y).setEstado(EstadoCelda.VACIO);
 				}
 			}
 		}
@@ -105,14 +103,14 @@ public class TestingMatriz {
 			}
 		}
 	
-		@Test
+		//@Test
 		public void mostrarMatriz() {
 			int tam = 5;
 			Matriz matriz = new Matriz(tam);
 			for (int i=0; i< matriz.getTam(); i++) {
-		//		for (int j=0; j<matriz.getTam(); j++)
-		//			matriz.getPos(i,j).mostrarCelda();
-		//		System.out.println(" ");
+				for (int j=0; j<matriz.getTam(); j++)
+					matriz.getPos(i,j).mostrarCelda();
+				System.out.println(" ");
 			}
 		}
 		
@@ -121,13 +119,15 @@ public class TestingMatriz {
 			int tam = 5;
 			Matriz matriz = new Matriz(tam);
 			matriz.llenarConMinas();
-		/*	for (int i=0; i< matriz.getTam(); i ++) {
+			for (int i=0; i< matriz.getTam(); i ++) {
 				for (int j=0; j<matriz.getTam(); j++)
 					matriz.contarAdyacentesParaCelda(i, j);
-			}*/
+			}
 			matriz.mostrarMatriz();
 		}
 
+		
+		
 		
 		
 	
