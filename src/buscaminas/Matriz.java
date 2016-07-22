@@ -78,7 +78,7 @@ public class Matriz {
 					}
 					else
 						getPos(x, y).setEstado(EstadoCelda.VACIO);
-			//	}
+				}
 			}
 		}
 	}
@@ -95,7 +95,7 @@ public class Matriz {
 		for (int i=0; i<tam;i++){
 			for (int j=0; j<tam; j++) {
 				celdas[i][j] = new Celda(true,EstadoCelda.VACIO,0);
-				celdas[i][j].mostrarCelda();
+			//	celdas[i][j].mostrarCelda();
 			}
 			System.out.print("");
 		}
