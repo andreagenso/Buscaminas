@@ -48,6 +48,6 @@ public class Celda {
     		if (esNumero()) System.out.print(" [" + cantAdyacentes + "]");
     		if (esVacio()) System.out.print(" [ ]");
     	} else     
-    		System.out.print(" [?]");
+    	System.out.print(" [?]");
     }
 }

@@ -5,8 +5,8 @@ import static org.junit.Assert.*;
 import buscaminas.*;
 
 public class TestingCelda {
-           
-    @Test
+
+	@Test
     public void testEsMina() {    	
     	boolean visible = true;
     	EstadoCelda estado = EstadoCelda.MINA;
@@ -18,7 +18,6 @@ public class TestingCelda {
         assertTrue(result);
     }
     
-    @Test
     public void testSiVacio(){
     	boolean visible = true;
     	EstadoCelda estado = EstadoCelda.VACIO;
@@ -30,7 +29,6 @@ public class TestingCelda {
         assertTrue(result);
     }
     
-    @Test
     public void testEsAdyacenteValido(){
     	boolean visible = true;
     	EstadoCelda estado = EstadoCelda.NUMERO;
@@ -42,7 +40,6 @@ public class TestingCelda {
         assertTrue(result);            	
     }
     
-    @Test
     public void testEsVisible(){
     	boolean visible = true;
     	EstadoCelda estado = EstadoCelda.NUMERO;
@@ -54,9 +51,8 @@ public class TestingCelda {
         assertTrue(result);            	
     }
     
-    //@Test
     public void mostrarCelda() {
-    	boolean visible = true;
+    	boolean visible = false;
     	EstadoCelda estado = EstadoCelda.NUMERO;
     	int cantAdyacente = 4;
  
@@ -65,8 +61,9 @@ public class TestingCelda {
     	{
     		if (celda.esMina()) System.out.print(" [*]");
     		if (celda.esNumero()) System.out.print(" [" + cantAdyacente + "]");
+    		if (celda.esVacio()) System.out.print(" [ ]");
     	}
-    	if (!celda.esVisible() || celda.esVacio()) System.out.print(" [ ]");
+    	else System.out.print(" [?]");
     }
 }
 
