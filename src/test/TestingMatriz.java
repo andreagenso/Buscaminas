@@ -15,7 +15,6 @@ public class TestingMatriz {
 		assertEquals(resultado,2);
 	}
 
-	@Test
 	public void validarTodoMinas() {
 		int cantMinas = 0;
 		Matriz matriz = new Matriz(2);
@@ -28,7 +27,6 @@ public class TestingMatriz {
 		assertNotEquals(matriz.getTam()*matriz.getTam(),cantMinas);
 	}
 	
-	@Test
 	public void validarTodoVacios() {
 		int cantVacios = 0;
 		Matriz matriz = new Matriz(2);
@@ -69,7 +67,6 @@ public class TestingMatriz {
 		for (int i=0; i<matriz.getTam(); i++) {
 			for (int j=0; j<matriz.getTam(); j++) {
 				if (matriz.getPos(i, j).getEstado() != EstadoCelda.MINA) {
-					
 					for (int a = x-1; a <= x+1; a++) {
 						for (int b= y-1; b <= y+1; b++) {
 							if (a >= limiteInferior && a<= limiteSuperior && b >= limiteInferior && b<= limiteSuperior) {
@@ -90,7 +87,6 @@ public class TestingMatriz {
 		}
 	}
 	
-		@Test
 		public void llenarCeldasConVacio() {
 			int tam = 5;
 			Matriz matriz = new Matriz(tam);
@@ -103,7 +99,6 @@ public class TestingMatriz {
 			}
 		}
 	
-		//@Test
 		public void mostrarMatriz() {
 			int tam = 5;
 			Matriz matriz = new Matriz(tam);
@@ -114,7 +109,6 @@ public class TestingMatriz {
 			}
 		}
 		
-	//	@Test
 		public void llenarMatrizAleatoriamente() {
 			int tam = 5;
 			Matriz matriz = new Matriz(tam);
@@ -133,10 +127,44 @@ public class TestingMatriz {
 			matriz.mostrarMatriz();
 		}
 		
+		public void mostrarAdyacentes() {
+			Matriz matriz = new Matriz(5);
+			Celda aux = new Celda(true,EstadoCelda.VACIO,0);
+			Celda c1 = new Celda(true,EstadoCelda.MINA,0);
+			Celda c2 = new Celda(true,EstadoCelda.MINA,0);
+			Celda c3 = new Celda(true,EstadoCelda.MINA,0);
+			Celda c4 = new Celda(true,EstadoCelda.MINA,0);
+			Celda c5 = new Celda(true,EstadoCelda.VACIO,0);
+			int x = 0, y =3;
+			matriz.setPos(x, y, aux);
+			matriz.setPos(0, 2, c1); 
+			matriz.setPos(1, 2, c2);
+			matriz.setPos(1, 3, c3);
+			matriz.setPos(1, 4, c4); 
+			matriz.setPos(0, 4, c5);
+			
+			int limiteInferior = 0, limiteSuperior = matriz.getTam() - 1, cantidad = 0;
+
+			for (int a = x-1; a <= x+1; a++) {
+				for (int b= y-1; b <= y+1; b++) {
+					if (a >= limiteInferior && a<= limiteSuperior && b >= limiteInferior && b<= limiteSuperior) {
+						if (matriz.getPos(a,b) != matriz.getPos(x,y))
+						{	
+							if (matriz.getPos(a, b).getEstado().equals(EstadoCelda.MINA))
+								cantidad++;
+						}
+					}
+				}
+			}
+			if (cantidad > 0) {
+				matriz.getPos(x, y).setEstado(EstadoCelda.NUMERO);
+				matriz.getPos(x, y).setCantidadAdyacentes(cantidad);	
+			}
+			else
+				matriz.getPos(x, y).setEstado(EstadoCelda.VACIO);
+		System.out.println(matriz.getPos(x, y).getCantidadDeAdyacentes()+" " + matriz.getPos(x, y).getEstado().toString());
+		}
 		
-		
-		
-	
 	@Test
 	public void validarVisiblesPierdeConTodoMinasVisible(){
 		Matriz matriz = new Matriz(4);
@@ -179,49 +207,5 @@ public class TestingMatriz {
 		}
 		assertTrue("validar que todas las celdas que no son mina son visibles, entonces gana", matriz.validarVisiblesExito());
 	}
-	
-	
-	@Test
-	public void mostrarAdyacentes() {
-		Matriz matriz = new Matriz(5);
-		Celda aux = new Celda(true,EstadoCelda.VACIO,0);
-		Celda c1 = new Celda(true,EstadoCelda.MINA,0);
-		Celda c2 = new Celda(true,EstadoCelda.MINA,0);
-		Celda c3 = new Celda(true,EstadoCelda.MINA,0);
-		Celda c4 = new Celda(true,EstadoCelda.MINA,0);
-		Celda c5 = new Celda(true,EstadoCelda.VACIO,0);
-		int x = 0, y =3;
-		matriz.setPos(x, y, aux);
-		matriz.setPos(0, 2, c1); 
-		matriz.setPos(1, 2, c2);
-		matriz.setPos(1, 3, c3);
-		matriz.setPos(1, 4, c4); 
-		matriz.setPos(0, 4, c5);
-		
-		int limiteInferior = 0, limiteSuperior = matriz.getTam() - 1, cantidad = 0;
-
-		for (int a = x-1; a <= x+1; a++) {
-
-			for (int b= y-1; b <= y+1; b++) {
-				if (a >= limiteInferior && a<= limiteSuperior && b >= limiteInferior && b<= limiteSuperior) {
-					if (matriz.getPos(a,b) != matriz.getPos(x,y))
-					{	
-						if (matriz.getPos(a, b).getEstado().equals(EstadoCelda.MINA))
-							cantidad++;
-					}
-				}
-			}
-		}
-		if (cantidad > 0) {
-			matriz.getPos(x, y).setEstado(EstadoCelda.NUMERO);
-			matriz.getPos(x, y).setCantidadAdyacentes(cantidad);	
-		}
-		else
-			matriz.getPos(x, y).setEstado(EstadoCelda.VACIO);
-	
-	//System.out.println(matriz.getPos(x, y).getCantidadDeAdyacentes()+" " + matriz.getPos(x, y).getEstado().toString());
-	}
-	
-	
 }
 

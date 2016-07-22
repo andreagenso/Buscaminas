@@ -1,6 +1,5 @@
 package buscaminas;
 import java.util.Random;
-//import buscaminas.Posicion;
 
 public class Matriz {
 	private int tam;
@@ -10,12 +9,7 @@ public class Matriz {
 	
 	public Matriz(int tam) {
 		this.tam = tam;
-		this.celdas = llenarCeldasConVacio();
-		llenarConMinas();
-		for (int i=0; i<tam; i++) {
-			for (int j=0; j<tam; j++)
-				contarAdyacentesParaCelda(i,j);
-		}
+		this.celdas = llenarMATRIZ();
 	}
 	
 	public int getTam() { return tam; }
@@ -103,22 +97,17 @@ public class Matriz {
 		}
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	public void hacerVisible(Posicion posicion) {
-		celdas[posicion.x][posicion.y].setVisible();
+	public Celda[][] llenarMATRIZ() {
+		this.celdas = llenarCeldasConVacio();
+		llenarConMinas();
+		for (int i=0; i<tam; i++) {
+			for (int j=0; j<tam; j++)
+				contarAdyacentesParaCelda(i,j);
+		}
+		return celdas;
 	}
 	
-	/*
-	 * Verifica si todas las celdas que no son mina, estan visibles
-	 * @return true si todas las celdas que no son minas estan visibles
-	 */
-	public boolean validarVisiblesExito(){
+	public boolean verificarSiTodasNoMinasSonVisibles(){
 		boolean resultado = true;
 		for (int i=0; i<tam;i++){
 			for (int j=0; j<tam; j++) {
@@ -132,10 +121,7 @@ public class Matriz {
 		return resultado;
 	}
 	
-	/*
-	 * @return true si al menos una mina es visible
-	 */
-	public boolean validarVisiblesPierde(){
+	public boolean verifircarSiHayPorLoMenosUnaMinaVisible(){
 		boolean resultado = false;
 		for (int i=0; i<tam;i++){
 			for (int j=0; j<tam; j++) {
