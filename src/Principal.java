@@ -11,16 +11,15 @@ public class Principal {
 		@SuppressWarnings("resource")
 		java.util.Scanner in = new java.util.Scanner(System.in);		
 		String opcionStr;
-		
-				
+					
 		boolean continuarJuego = true;
 		boolean jugar = true;
 				
-		System.out.println("BIENVENIDO AL JUEGO BUSCAMINAS * * *");
+		System.out.println("\t~~~ BIENVENIDO AL JUEGO BUSCAMINAS ~~~");
 		while(continuarJuego){									
 			
 			System.out.println("---------------------------------------");
-			System.out.println("POR FAVOR ELIJA UNA DE LAS OPCIONES: ");
+			System.out.println("\n\t MENU PRINCIPAL: ");
 			System.out.println("\t B) Para elegir el nivel BASICO de juego");
 			System.out.println("\t M) Para elegir el nivel MEDIO de juego");
 			System.out.println("\t A) Para elegir el nivel AVANZADO de juego");			
@@ -35,11 +34,10 @@ public class Principal {
 				buscaminas.mostrarInstruccionesIniciales();							
 				buscaminas.mostrarJugada();
 								
-				
 				while(jugar){
 					jugar = buscaminas.jugar();					
 					buscaminas.mostrarJugada();
-				}																								
+					}																								
 				break;
 			case "M" :
 				jugar = true;				

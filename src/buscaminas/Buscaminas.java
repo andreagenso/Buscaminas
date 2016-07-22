@@ -41,13 +41,9 @@ public class Buscaminas {
 		return matriz.getCeldas();
 	}
 	
-	public boolean esJuegoGanado(){
-		return matriz.validarVisiblesExito();		
-	}
+	public boolean esJuegoGanado(){ return matriz.validarVisiblesExito(); }
 	
-	public boolean esJuegoPerdido(){
-		return matriz.validarVisiblesPierde();
-	}
+	public boolean esJuegoPerdido(){ return matriz.validarVisiblesPierde();	}
 					
 	public boolean validarPosicion(Posicion posicion) {
 		int i = posicion.fila;
@@ -58,14 +54,12 @@ public class Buscaminas {
 	
 	public boolean jugar(){
 		boolean continuarJuego = true;
-		System.out.println("\t Ingrese posición X:");
+		System.out.println("\t Ingresar posición X:");
 		
 		@SuppressWarnings("resource")
 		java.util.Scanner in = new java.util.Scanner(System.in);
-		String filaStr;
-		String columnaStr;
-		int fila;
-		int columna;
+		String filaStr, columnaStr;
+		int fila, columna;
 				
 		filaStr = in.next();		
 		try{
@@ -75,7 +69,7 @@ public class Buscaminas {
 			} else {
 				fila = Integer.parseInt(filaStr);
 				
-				System.out.println("\t Ingrese posición Y:");
+				System.out.println("\t Ingresar posición Y:");
 				columnaStr = in.next();
 				try{
 					if (columnaStr.equals("Q")) {
@@ -107,24 +101,22 @@ public class Buscaminas {
 	
 	public void mostrarInstruccionesIniciales() {
 		System.out.println("**** INICIANDO JUEGO BUSCAMINAS *****");
-		System.out.println("\t ingrese un numero para elegir una fila como posicion X, ");
-		System.out.println("\t posteriormente otro número para elgir la columna como posición y");
+		System.out.println("\t Ingresar un numero para elegir una fila como posicion X ");
+		System.out.println("\t Posteriormente otro número para elgir la columna como posición Y");
 		System.out.println("\t Q) Para salir del juego.");
 		switch (nivel) {
 		case BASICO:
-			System.out.println("- NIVEL -BASICO");
+			System.out.println("\tNIVEL BASICO");
 			break;
 		case MEDIO:
-			System.out.println("- NIVEL -MEDIO");
+			System.out.println("\tNIVEL MEDIO");
 			break;
 		case AVANZADO:
-			System.out.println("- NIVEL -AVANZADO");
+			System.out.println("\tNIVEL AVANZADO");
 			break;
 		default:	
-			System.out.println("- NIVEL -BASICO");
+			System.out.println("\tNIVEL BASICO");
 			break;
-		}
-		
-	}
-		
+		}		
+	}		
 }
