@@ -47,7 +47,7 @@ public class Celda {
     		if (esMina()) System.out.print(" [*]");
     		if (esNumero()) System.out.print(" [" + cantAdyacentes + "]");
     		if (esVacio()) System.out.print(" [ ]");
-    	} else     
-    	System.out.print(" [?]");
+    	} 
+		else System.out.print(" [?]");
     }
 }
