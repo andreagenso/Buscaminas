@@ -12,7 +12,7 @@ public class Celda {
 	}
 	
 	public Celda(){
-		this.visible = true;
+		this.visible = false;
 		this.estado = EstadoCelda.VACIO;
 		this.cantAdyacentes = 0;
 	}
@@ -46,7 +46,9 @@ public class Celda {
     	{
     		if (esMina()) System.out.print(" [*]");
     		if (esNumero()) System.out.print(" [" + cantAdyacentes + "]");
-    	}
-    	if (!esVisible() || esVacio()) System.out.print(" [ ]");
+    	} else if(esVacio()) 
+    		System.out.print(" [ ]");
+    	else 
+    		System.out.print(" [?]");
     }
 }

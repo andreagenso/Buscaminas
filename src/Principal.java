@@ -37,7 +37,8 @@ public class Principal {
 				System.out.println("\t Q) Para salir del juego.");
 								
 				while(jugar){
-					buscaminas.jugar(jugar);									
+					buscaminas.jugar(jugar);	
+					buscaminas.mostrarJugada();
 				}																								
 				break;
 			case "M" :
@@ -50,7 +51,8 @@ public class Principal {
 				System.out.println("\t Q) Para salir del juego.");
 								
 				while(jugar){
-					buscaminas.jugar(jugar);									
+					buscaminas.jugar(jugar);
+					buscaminas.mostrarJugada();
 				}																								
 				break;				
 			case "A" :
@@ -63,7 +65,8 @@ public class Principal {
 				System.out.println("\t Q) Para salir del juego.");
 								
 				while(jugar){
-					buscaminas.jugar(jugar);									
+					buscaminas.jugar(jugar);	
+					buscaminas.mostrarJugada();
 				}																								
 				break;						
 			case "Q" :
