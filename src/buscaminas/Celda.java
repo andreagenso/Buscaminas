@@ -10,7 +10,13 @@ public class Celda {
 		this.estado = estado;
 		this.cantAdyacentes = cantAdyacentes;
 	}
-	    
+	
+	public Celda(){
+		this.visible = true;
+		this.estado = EstadoCelda.VACIO;
+		this.cantAdyacentes = 0;
+	}
+	
     public boolean esMina(){
     	return (estado.equals(EstadoCelda.MINA) && cantAdyacentes == 0);    	
     }

@@ -130,6 +130,7 @@ public class TestingMatriz {
 		
 		
 		
+		
 	
 	@Test
 	public void validarVisiblesPierdeConTodoMinasVisible(){
