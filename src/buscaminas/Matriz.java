@@ -1,5 +1,6 @@
 package buscaminas;
 import java.util.Random;
+import buscaminas.Posicion;
 
 public class Matriz {
 	private int tam;
@@ -107,7 +108,11 @@ public class Matriz {
 		return celdas;
 	}
 	
-	public boolean verificarSiTodasNoMinasSonVisibles(){
+	public void hacerVisible(Posicion posicion) {
+		celdas[posicion.x][posicion.y].setVisible();
+	}
+	
+	public boolean validarVisiblesExito(){
 		boolean resultado = true;
 		for (int i=0; i<tam;i++){
 			for (int j=0; j<tam; j++) {
@@ -121,7 +126,7 @@ public class Matriz {
 		return resultado;
 	}
 	
-	public boolean verifircarSiHayPorLoMenosUnaMinaVisible(){
+	public boolean validarVisiblesPierde(){
 		boolean resultado = false;
 		for (int i=0; i<tam;i++){
 			for (int j=0; j<tam; j++) {
