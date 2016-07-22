@@ -54,7 +54,7 @@ public class TestingCelda {
         assertTrue(result);            	
     }
     
-    @Test
+    //@Test
     public void mostrarCelda() {
     	boolean visible = true;
     	EstadoCelda estado = EstadoCelda.NUMERO;
