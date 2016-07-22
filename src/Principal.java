@@ -18,62 +18,58 @@ public class Principal {
 				
 		System.out.println("BIENVENIDO AL JUEGO BUSCAMINAS * * *");
 		while(continuarJuego){									
+			
+			System.out.println("---------------------------------------");
 			System.out.println("POR FAVOR ELIJA UNA DE LAS OPCIONES: ");
 			System.out.println("\t B) Para elegir el nivel BASICO de juego");
 			System.out.println("\t M) Para elegir el nivel MEDIO de juego");
-			System.out.println("\t A) Para elegir el nivel AVANZADO de juego");
-			System.out.println("\t E) Para empezar el juego");
+			System.out.println("\t A) Para elegir el nivel AVANZADO de juego");			
 			System.out.println("\t Q) Para salir del juego");			
 						
 			opcionStr = in.next();
+								
 			switch (opcionStr) {
 			case "B" :
+				jugar = true;
 				buscaminas = new Buscaminas(NivelJuego.BASICO);
+				buscaminas.mostrarInstruccionesIniciales();							
 				buscaminas.mostrarJugada();
-				
-				System.out.println("INICIANDO JUEGO .... ");
-				System.out.println("\t ingrese un numero para elegir una fila como posicion X, "
-						+ "posteriormente otro número para elgir la columna como posición y");
-				System.out.println("\t Q) Para salir del juego.");
 								
+				
 				while(jugar){
-					buscaminas.jugar(jugar);	
+					jugar = buscaminas.jugar();					
 					buscaminas.mostrarJugada();
 				}																								
 				break;
 			case "M" :
+				jugar = true;				
 				buscaminas = new Buscaminas(NivelJuego.MEDIO);
+				buscaminas.mostrarInstruccionesIniciales();
 				buscaminas.mostrarJugada();
-				
-				System.out.println("INICIANDO JUEGO .... bla bla instrucciones para jugo MEDIO ");
-				System.out.println("\t ingrese un numero para elegir una fila como posicion X, "
-						+ "posteriormente otro número para elgir la columna como posición y");
-				System.out.println("\t Q) Para salir del juego.");
 								
 				while(jugar){
-					buscaminas.jugar(jugar);
+					jugar = buscaminas.jugar();
 					buscaminas.mostrarJugada();
 				}																								
 				break;				
 			case "A" :
-				buscaminas = new Buscaminas(NivelJuego.BASICO);
+				jugar = true;				
+				buscaminas = new Buscaminas(NivelJuego.AVANZADO);
+				buscaminas.mostrarInstruccionesIniciales();
 				buscaminas.mostrarJugada();
-				
-				System.out.println("INICIANDO JUEGO .... bla bla instrucciones para juego AVANZADO ");
-				System.out.println("\t ingrese un numero para elegir una fila como posicion X, "
-						+ "posteriormente otro número para elgir la columna como posición y");
-				System.out.println("\t Q) Para salir del juego.");
 								
 				while(jugar){
-					buscaminas.jugar(jugar);	
+					jugar = buscaminas.jugar();	
 					buscaminas.mostrarJugada();
 				}																								
 				break;						
 			case "Q" :
-				System.out.println("\t ADIOS ... ");
+				jugar = true;
+				System.out.println("\t ADIOS ... *** VUELVE PRONTO ... SI TE ATREVES :D *** ");
 				continuarJuego = false;
 				break;			
 			default :	
+				jugar = true;
 				System.out.println("\tOPCION DESCONOCIDA, POR FAVOR ELIJA UNA OPCION NUEVAMENTE!");
 				break;
 			}
