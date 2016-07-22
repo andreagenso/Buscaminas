@@ -41,7 +41,7 @@ public class Matriz {
 	public void setPos(int i, int j, Celda aux) { celdas[i][j] = aux; };
 
 	public void llenarConMinas() {
-		boolean visible = true;
+		boolean visible = false;
 		int cantMinas = 0, cantAdyacentes = 0;
 		Celda aux = new Celda(visible,EstadoCelda.MINA,cantAdyacentes);
 	

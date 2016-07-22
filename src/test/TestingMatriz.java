@@ -175,7 +175,7 @@ public class TestingMatriz {
 					matriz.getCeldas()[i][j].setVisible();
 			}
 		}
-		assertTrue("validar que al menos hay una mina visible, entonces pierde", matriz.validarVisiblesPierde());
+		assertTrue("validar que al menos hay una mina visible, entonces pierde", matriz.verifircarSiHayPorLoMenosUnaMinaVisible());
 	}
 	
 	@Test
@@ -190,7 +190,7 @@ public class TestingMatriz {
 				}
 			}
 		}
-		assertTrue("validar que al menos hay una mina visible, entonces pierde", matriz.validarVisiblesPierde());
+		assertTrue("validar que al menos hay una mina visible, entonces pierde", matriz.verifircarSiHayPorLoMenosUnaMinaVisible());
 	}
 	
 	@Test
@@ -200,12 +200,11 @@ public class TestingMatriz {
 		for (int i=0; i<matriz.getTam(); i++) {
 			for (int j=0; j < matriz.getTam(); j++) {
 				if (!matriz.getPos(i,j).esMina()){
-					matriz.getCeldas()[i][j].setVisible();
-					break;
+					matriz.getCeldas()[i][j].setVisible();					
 				}
 			}
 		}
-		assertTrue("validar que todas las celdas que no son mina son visibles, entonces gana", matriz.validarVisiblesExito());
+		assertTrue("validar que todas las celdas que no son mina son visibles, entonces gana", matriz.verificarSiTodasNoMinasSonVisibles());
 	}
 }
 

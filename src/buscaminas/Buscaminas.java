@@ -39,7 +39,7 @@ public class Buscaminas {
 				
 		for (int i = 0; i < celdas.length; i++) {
 		    for (int j = 0; j < celdas[i].length; j++) {
-		        System.out.print("| " + celdas[i][j] + " |");
+		        celdas[i][j].mostrarCelda();
 		    }
 		    System.out.println();
 		}
