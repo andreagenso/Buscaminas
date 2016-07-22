@@ -11,6 +11,11 @@ public class Matriz {
 	public Matriz(int tam) {
 		this.tam = tam;
 		this.celdas = llenarCeldasConVacio();
+		llenarConMinas();
+		for (int i=0; i<tam; i++) {
+			for (int j=0; j<tam; j++)
+				contarAdyacentesParaCelda(i,j);
+		}
 	}
 	
 	public int getTam() { return tam; }
