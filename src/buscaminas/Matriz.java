@@ -10,7 +10,7 @@ public class Matriz {
 	
 	public Matriz(int tam) {
 		this.tam = tam;
-		this.celdas = llenarCeldas();
+		this.celdas = llenarCeldasConVacio();
 	}
 	
 	public int getTam() { return tam; }
@@ -83,42 +83,32 @@ public class Matriz {
 		}
 	}
 	
-	public void llenarCeldasConVacio() {
+	public Celda[][] llenarCeldasConVacio() {
 		this.celdas = new Celda[tam][tam];
+		boolean visible = true;
+		EstadoCelda estado = EstadoCelda.VACIO;
+		int cantAdyacentes = 0;
 		for (int i=0; i< tam; i++) {
 			for (int j=0; j < tam; j++) {
+				celdas[i][j] = new Celda(visible, estado, cantAdyacentes);
 				celdas[i][j].setVisible();
 				celdas[i][j].setEstado(EstadoCelda.VACIO);
 				celdas[i][j].setCantidadAdyacentes(0);
 			}
 		}
-	}
-
-	
-	
-	
-	
-	////need to fix
-	private Celda[][] llenarCeldas(){
-		this.celdas = new Celda[tam][tam];
-		
-		for (int i=0; i<tam;i++){
-			for (int j=0; j<tam; j++) {
-				celdas[i][j] = new Celda(true,EstadoCelda.VACIO,0);
-			//	celdas[i][j].mostrarCelda();
-			}
-			System.out.print("");
-		}
-		//llenarConMinas();
-		
-		/*
-		for (int i=0; i<tam;i++){
-			for (int j=0; j<tam; j++) 
-				contarAdyacentesParaCelda(i,j);
-		}
-		*/
 		return celdas;
 	}
+
+	public void mostrarMatriz() {
+		for (int i=0; i< tam; i++) {
+			for (int j=0; j < tam; j++)
+				celdas[i][j].mostrarCelda();
+			System.out.println(" ");
+		}
+	}
+	
+	
+	
 	
 	public void hacerVisible(Posicion posicion) {
 		celdas[posicion.x][posicion.y].setVisible();
