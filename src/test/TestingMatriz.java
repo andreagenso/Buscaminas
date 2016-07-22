@@ -95,26 +95,23 @@ public class TestingMatriz {
 	
 	
 	
-	/*
 		@Test
 		public void llenarCeldas() {
 			int tam = 5;
 			Matriz matriz = new Matriz(tam);
-			matriz.llenarConMinas();
+		//	matriz.llenarConMinas();
 			for (int i=0; i< matriz.getTam(); i++) {
 				for (int j=0; j<matriz.getTam(); j++) {
-					matriz.contarAdyacentesParaCelda(i,j);
-				//	System.out.print(matriz.getPos(i,j).getCantidadDeAdyacentes()+" " + matriz.getPos(i, j).getEstado().toString());
+				//	matriz.contarAdyacentesParaCelda(i,j);
+					matriz.getPos(i, j).mostrarCelda();
 				}
-			//	System.out.println(" ");
+				System.out.println(matriz.getTam());
 			}
 		}
 	
-	*/
 	
 		
-	
-		
+
 	
 	@Test
 	public void validarVisiblesPierdeConTodoMinasVisible(){
@@ -198,7 +195,7 @@ public class TestingMatriz {
 		else
 			matriz.getPos(x, y).setEstado(EstadoCelda.VACIO);
 	
-	System.out.println(matriz.getPos(x, y).getCantidadDeAdyacentes()+" " + matriz.getPos(x, y).getEstado().toString());
+	//System.out.println(matriz.getPos(x, y).getCantidadDeAdyacentes()+" " + matriz.getPos(x, y).getEstado().toString());
 	}
 		
 	

@@ -78,7 +78,7 @@ public class Matriz {
 					}
 					else
 						getPos(x, y).setEstado(EstadoCelda.VACIO);
-				}
+			//	}
 			}
 		}
 	}
@@ -95,11 +95,11 @@ public class Matriz {
 		for (int i=0; i<tam;i++){
 			for (int j=0; j<tam; j++) {
 				celdas[i][j] = new Celda(true,EstadoCelda.VACIO,0);
-				System.out.print(celdas[i][j].getCantidadDeAdyacentes()+" " + celdas[i][j].getEstado().toString());
-
+				celdas[i][j].mostrarCelda();
 			}
+			System.out.print("");
 		}
-		llenarConMinas();
+		//llenarConMinas();
 		
 		/*
 		for (int i=0; i<tam;i++){

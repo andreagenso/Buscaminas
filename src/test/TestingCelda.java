@@ -57,15 +57,16 @@ public class TestingCelda {
     @Test
     public void mostrarCelda() {
     	boolean visible = true;
-    	EstadoCelda estado = EstadoCelda.VACIO;
+    	EstadoCelda estado = EstadoCelda.NUMERO;
     	int cantAdyacente = 4;
  
-    	if (visible)
+    	Celda celda = new Celda(visible,estado,cantAdyacente);
+    	if (celda.esVisible())
     	{
-    		if (estado == EstadoCelda.MINA) System.out.print(" [*]");
-    		if (estado == EstadoCelda.NUMERO) System.out.print(" [" + cantAdyacente + "]");
+    		if (celda.esMina()) System.out.print(" [*]");
+    		if (celda.esNumero()) System.out.print(" [" + cantAdyacente + "]");
     	}
-    	if (!visible || estado == EstadoCelda.VACIO) System.out.println(" [ ]");
+    	if (!celda.esVisible() || celda.esVacio()) System.out.print(" [ ]");
     }
 }
 

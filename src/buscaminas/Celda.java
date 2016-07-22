@@ -19,6 +19,10 @@ public class Celda {
     	return (estado.equals(EstadoCelda.VACIO) && cantAdyacentes == 0);    	
     }
     
+    public boolean esNumero(){
+    	return (estado.equals(EstadoCelda.NUMERO) && cantAdyacentes > 0);    	
+    }
+    
     public int getCantidadDeAdyacentes() { return cantAdyacentes; }
     
     public void setCantidadAdyacentes(int val) { cantAdyacentes = val; };
@@ -31,4 +35,12 @@ public class Celda {
 	
 	public void setEstado(EstadoCelda estado) { this.estado = estado; }
     
+	public void mostrarCelda() {
+		if (esVisible())
+    	{
+    		if (esMina()) System.out.print(" [*]");
+    		if (esNumero()) System.out.print(" [" + cantAdyacentes + "]");
+    	}
+    	if (!esVisible() || esVacio()) System.out.print(" [ ]");
+    }
 }
