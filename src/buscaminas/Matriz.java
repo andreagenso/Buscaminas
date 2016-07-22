@@ -83,16 +83,9 @@ public class Matriz {
 	
 	public Celda[][] llenarCeldasConVacio() {
 		this.celdas = new Celda[tam][tam];
-		boolean visible = true;
-		EstadoCelda estado = EstadoCelda.VACIO;
-		int cantAdyacentes = 0;
 		for (int i=0; i< tam; i++) {
-			for (int j=0; j < tam; j++) {
-				celdas[i][j] = new Celda(visible, estado, cantAdyacentes);
-				celdas[i][j].setVisible();
-				celdas[i][j].setEstado(EstadoCelda.VACIO);
-				celdas[i][j].setCantidadAdyacentes(0);
-			}
+			for (int j=0; j < tam; j++) 
+				celdas[i][j] = new Celda();
 		}
 		return celdas;
 	}
@@ -111,19 +104,9 @@ public class Matriz {
 	
 	
 	
+	
 	public void hacerVisible(Posicion posicion) {
 		celdas[posicion.x][posicion.y].setVisible();
-	}
-	
-	private Celda construirCeldaRandom() {
-		boolean visible = true;
-		int cantAdyacente = 0;
-		int estadoRandom = new Random().nextInt(EstadoCelda.values().length);	
-		EstadoCelda estado = EstadoCelda.values()[estadoRandom];
-		if (estado.equals(EstadoCelda.NUMERO))
-			cantAdyacente = new Random().nextInt(8)+1;
-		Celda celda = new Celda(visible,estado,cantAdyacente);
-		return celda;
 	}
 	
 	/*
@@ -159,7 +142,4 @@ public class Matriz {
 		}
 		return resultado;
 	}
-
-//llenar adyacentes -> funcion para contar minas
-// construitCeldaRandom() -> llenarMinas(), llenarAdyacentes()
 }
