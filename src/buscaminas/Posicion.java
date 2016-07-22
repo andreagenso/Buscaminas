@@ -1,11 +1,11 @@
 package buscaminas;
 
 public class Posicion {
-	int x;
-	int y;
+	int fila;
+	int columna;
 	
-	public Posicion(int x, int y) {
-		this.x = x;
-		this.y = y;
+	public Posicion(int fila, int columna) {
+		this.fila = fila;
+		this.columna = columna;
 	}
 }

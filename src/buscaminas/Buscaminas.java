@@ -21,22 +21,7 @@ public class Buscaminas {
 				this.matriz = new Matriz(4);
 				break;
 		}					
-	}
-	
-	public Celda[][] reiniciarJuego(NivelJuego nivel){
-		switch (nivel) {
-		case BASICO:
-			this.matriz = new Matriz(4);
-		case MEDIO:
-			this.matriz = new Matriz(15);
-		case AVANZADO:
-			this.matriz = new Matriz(40);
-		default:	
-			this.matriz = new Matriz(4);
-		}
-		
-		return this.matriz.getCeldas();
-	}
+	}	
 	
 	public void mostrarJugada(){
 		Celda[][] celdas = matriz.getCeldas();
@@ -65,8 +50,8 @@ public class Buscaminas {
 	}
 					
 	public boolean validarPosicion(Posicion posicion) {
-		int i = posicion.x;
-		int j = posicion.y;
+		int i = posicion.fila;
+		int j = posicion.columna;
 		
 		return (i >= 0 && i <= matriz.getTam() -1) && (j >= 0 && j <= matriz.getTam() -1);				
 	}
@@ -77,29 +62,29 @@ public class Buscaminas {
 		
 		@SuppressWarnings("resource")
 		java.util.Scanner in = new java.util.Scanner(System.in);
-		String posicionXStr;
-		String posicionYStr;
-		int posicionX;
-		int posicionY;
+		String filaStr;
+		String columnaStr;
+		int fila;
+		int columna;
 				
-		posicionXStr = in.next();		
+		filaStr = in.next();		
 		try{
-			if (posicionXStr.equals("Q")) {
+			if (filaStr.equals("Q")) {
 				continuarJuego = false;
 				return continuarJuego;				
 			} else {
-				posicionX = Integer.parseInt(posicionXStr);
+				fila = Integer.parseInt(filaStr);
 				
 				System.out.println("\t Ingrese posición Y:");
-				posicionYStr = in.next();
+				columnaStr = in.next();
 				try{
-					if (posicionYStr.equals("Q")) {
+					if (columnaStr.equals("Q")) {
 						continuarJuego = false;
 						return continuarJuego;
 					}
-					posicionY = Integer.parseInt(posicionXStr);
+					columna = Integer.parseInt(columnaStr);
 					
-					Posicion posicion = new Posicion(posicionX, posicionY);
+					Posicion posicion = new Posicion(fila, columna);
 					jugarPosicion(posicion);
 					
 					if (esJuegoGanado()){
@@ -110,12 +95,12 @@ public class Buscaminas {
 						continuarJuego = false;
 					}		
 				}
-				catch (java.util.InputMismatchException m){ posicionY =  -1;}
-				catch (Exception e){ posicionY =  -1;}				
+				catch (java.util.InputMismatchException m){ columna =  -1;}
+				catch (Exception e){ columna =  -1;}				
 			} 
 			
-		} catch (java.util.InputMismatchException m){ posicionX =  -1;}
-		catch (Exception e){ posicionX =  -1;}
+		} catch (java.util.InputMismatchException m){ fila =  -1;}
+		catch (Exception e){ fila =  -1;}
 						
 		return continuarJuego;
 	}

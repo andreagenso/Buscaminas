@@ -109,7 +109,7 @@ public class Matriz {
 	}
 	
 	public void hacerVisible(Posicion posicion) {
-		celdas[posicion.x][posicion.y].setVisible();
+		celdas[posicion.fila][posicion.columna].setVisible();
 	}
 	
 	public boolean validarVisiblesExito(){
