@@ -68,14 +68,14 @@ public class TestingMatriz {
 	
 		for (int i=0; i<matriz.getTam(); i++) {
 			for (int j=0; j<matriz.getTam(); j++) {
-				if (!matriz.getPos(i, j).getEstado().equals(EstadoCelda.MINA)) {
+				if (matriz.getPos(i, j).getEstado() != EstadoCelda.MINA) {
 					
 					for (int a = x-1; a <= x+1; a++) {
 						for (int b= y-1; b <= y+1; b++) {
 							if (a >= limiteInferior && a<= limiteSuperior && b >= limiteInferior && b<= limiteSuperior) {
 								if (matriz.getPos(a,b) != matriz.getPos(x,y))
 								{	
-									if (matriz.getPos(a, b).getEstado().equals(EstadoCelda.MINA))
+									if (matriz.getPos(a,b).getEstado().equals(EstadoCelda.MINA))
 										cantidad++;
 								}
 							}
@@ -118,10 +118,10 @@ public class TestingMatriz {
 		
 		@Test
 		public void llenarMatrizAleatoriamente() {
-			int tam = 2;
+			int tam = 5;
 			Matriz matriz = new Matriz(tam);
 			matriz.llenarConMinas();
-			/*for (int i=0; i< matriz.getTam(); i ++) {
+		/*	for (int i=0; i< matriz.getTam(); i ++) {
 				for (int j=0; j<matriz.getTam(); j++)
 					matriz.contarAdyacentesParaCelda(i, j);
 			}*/

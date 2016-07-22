@@ -46,7 +46,7 @@ public class Matriz {
 		int cantMinas = 0, cantAdyacentes = 0;
 		Celda aux = new Celda(visible,EstadoCelda.MINA,cantAdyacentes);
 	
-		while (cantMinas <= tam/2) {
+		while (cantMinas <= ((tam*tam)/2)) {
 			int randX = new Random().nextInt(tam-1) + 1; 
 			int randY = new Random().nextInt(tam-1) + 1;
 			celdas[randX][randY] = aux;
@@ -106,6 +106,7 @@ public class Matriz {
 			System.out.println(" ");
 		}
 	}
+	
 	
 	
 	
